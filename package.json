@@ -1,0 +1,26 @@
+{
+  "name": "realworld-event-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "start": "npm run build && node lib/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "level": "^8.0.1",
+    "node-cron": "^3.0.3",
+    "web3": "^4.13.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.7",
+    "@babel/node": "^7.25.7",
+    "@babel/preset-env": "^7.25.7"
+  }
+}

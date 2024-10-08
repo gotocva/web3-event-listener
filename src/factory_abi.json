@@ -1,0 +1,1383 @@
+[
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "previousAdmin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAdmin",
+          "type": "address"
+        }
+      ],
+      "name": "AdminChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "beacon",
+          "type": "address"
+        }
+      ],
+      "name": "BeaconUpgraded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "collection",
+          "type": "address"
+        }
+      ],
+      "name": "CollectionDestroyed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "clientAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string[]",
+          "name": "attributes",
+          "type": "string[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "isRegulated",
+          "type": "bool"
+        }
+      ],
+      "name": "CreatedERC721",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "clientAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string[]",
+          "name": "attributes",
+          "type": "string[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "isRegulated",
+          "type": "bool"
+        }
+      ],
+      "name": "CreatedLazyMintERC721",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "paymentSplitter",
+          "type": "address"
+        }
+      ],
+      "name": "CreatedPaymentSplitter",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "version",
+          "type": "uint8"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint16",
+              "name": "platformFee",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "royaltyFee",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint8",
+              "name": "creatorRoyaltyFee",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "clientRoyaltyFee",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bool",
+              "name": "usePartnerFee",
+              "type": "bool"
+            }
+          ],
+          "indexed": true,
+          "internalType": "struct MarketplaceFactory.PartnerFee",
+          "name": "partnerFee",
+          "type": "tuple"
+        }
+      ],
+      "name": "PartnerFeesUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string[]",
+          "name": "attributes",
+          "type": "string[]"
+        }
+      ],
+      "name": "SetCollectionAttributes",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint16",
+              "name": "platformFee",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "royaltyFee",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint8",
+              "name": "creatorRoyaltyFee",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "clientRoyaltyFee",
+              "type": "uint8"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct MarketplaceFactory.FeeStruct",
+          "name": "fee",
+          "type": "tuple"
+        }
+      ],
+      "name": "SetRegulatedFee",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint16",
+              "name": "platformFee",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "royaltyFee",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint8",
+              "name": "creatorRoyaltyFee",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "clientRoyaltyFee",
+              "type": "uint8"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct MarketplaceFactory.FeeStruct",
+          "name": "fee",
+          "type": "tuple"
+        }
+      ],
+      "name": "SetUnregulatedFee",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "erc721Beacon",
+          "type": "address"
+        }
+      ],
+      "name": "UpdatedBeacon",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "erc721BeaconProxy",
+          "type": "address"
+        }
+      ],
+      "name": "UpdatedBeaconProxy",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "lazyMintErc721Beacon",
+          "type": "address"
+        }
+      ],
+      "name": "UpdatedLazyMintBeacon",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "lazyMintErc721BeaconProxy",
+          "type": "address"
+        }
+      ],
+      "name": "UpdatedLazyMintBeaconProxy",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        }
+      ],
+      "name": "Upgraded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "balance",
+          "type": "uint256"
+        }
+      ],
+      "name": "WithdrawNativeFromFactory",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "ERC721",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "accessControl",
+      "outputs": [
+        {
+          "internalType": "contract IAccessControl",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "admin",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "collectionAttributes",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "collectionName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionSymbol",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionDescription",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_receiver",
+          "type": "address"
+        },
+        {
+          "internalType": "string[]",
+          "name": "_collectionAttributes",
+          "type": "string[]"
+        }
+      ],
+      "name": "createERC721CollectionRegulated",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "collectionName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionSymbol",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionDescription",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_receiver",
+          "type": "address"
+        },
+        {
+          "internalType": "string[]",
+          "name": "_collectionAttributes",
+          "type": "string[]"
+        }
+      ],
+      "name": "createERC721CollectionUnregulated",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "collectionName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionSymbol",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionDescription",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_receiver",
+          "type": "address"
+        },
+        {
+          "internalType": "string[]",
+          "name": "_collectionAttributes",
+          "type": "string[]"
+        }
+      ],
+      "name": "createLazyMintERC721CollectionRegulated",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "collectionName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionSymbol",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionDescription",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_receiver",
+          "type": "address"
+        },
+        {
+          "internalType": "string[]",
+          "name": "_collectionAttributes",
+          "type": "string[]"
+        }
+      ],
+      "name": "createLazyMintERC721CollectionUnregulated",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "erc721Beacon",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllCollectionsRegulated",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllCollectionsUnregulated",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "collection",
+          "type": "address"
+        }
+      ],
+      "name": "getCollectionAttributes",
+      "outputs": [
+        {
+          "internalType": "string[]",
+          "name": "",
+          "type": "string[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "collectionName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionSymbol",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionDescription",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "salt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint96",
+          "name": "_feeNumerator",
+          "type": "uint96"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_platformFee",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_admin",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_factory",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "paymentSplitter",
+          "type": "address"
+        }
+      ],
+      "name": "getERC721Address",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "partner",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "isRegulated",
+          "type": "bool"
+        }
+      ],
+      "name": "getFees",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint16",
+              "name": "platformFee",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "royaltyFee",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint8",
+              "name": "creatorRoyaltyFee",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "clientRoyaltyFee",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct MarketplaceFactory.FeeStruct",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "collectionName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionSymbol",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "collectionDescription",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "salt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint96",
+          "name": "_feeNumerator",
+          "type": "uint96"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_platformFee",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_admin",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_factory",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "paymentSplitter",
+          "type": "address"
+        }
+      ],
+      "name": "getLazyMintERC721Address",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getUserCreatedCollections",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_accessControl",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_minter",
+          "type": "address"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_platformFeeRegulated",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_platformFeeUnregulated",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_royaltyFeeRegulated",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_royaltyFeeUnregulated",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_creatorRoyaltyFeeRegulated",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_creatorRoyaltyFeeUnregulated",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_clientRoyaltyFeeRegulated",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_clientRoyaltyFeeUnregulated",
+          "type": "uint8"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isCollectionDestroyed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lazyMintERC721",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lazyMintErc721Beacon",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "minter",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "partnerFee",
+      "outputs": [
+        {
+          "internalType": "uint16",
+          "name": "platformFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint16",
+          "name": "royaltyFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint8",
+          "name": "creatorRoyaltyFee",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "clientRoyaltyFee",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bool",
+          "name": "usePartnerFee",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "proxiableUUID",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "regulatedFees",
+      "outputs": [
+        {
+          "internalType": "uint16",
+          "name": "platformFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint16",
+          "name": "royaltyFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint8",
+          "name": "creatorRoyaltyFee",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "clientRoyaltyFee",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "internalType": "string[]",
+          "name": "_collectionAttributes",
+          "type": "string[]"
+        }
+      ],
+      "name": "setCollectionAttributes",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "collection",
+          "type": "address"
+        }
+      ],
+      "name": "setCollectionIsDestroyed",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "partner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_platformFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_royaltyFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_creatorRoyaltyFee",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_clientRoyaltyFee",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bool",
+          "name": "_usePartnerFee",
+          "type": "bool"
+        }
+      ],
+      "name": "setPartnerFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_platformFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_royaltyFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_creatorRoyaltyFee",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_clientRoyaltyFee",
+          "type": "uint8"
+        }
+      ],
+      "name": "setRegulatedFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_platformFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_royaltyFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_creatorRoyaltyFee",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_clientRoyaltyFee",
+          "type": "uint8"
+        }
+      ],
+      "name": "setUnregulatedFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unRegulatedFees",
+      "outputs": [
+        {
+          "internalType": "uint16",
+          "name": "platformFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint16",
+          "name": "royaltyFee",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint8",
+          "name": "creatorRoyaltyFee",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "clientRoyaltyFee",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "erc721BeaconAddress",
+          "type": "address"
+        }
+      ],
+      "name": "updateBeacon",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "erc721BeaconProxyAddress",
+          "type": "address"
+        }
+      ],
+      "name": "updateBeaconProxy",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "lazyMintErc721BeaconAddress",
+          "type": "address"
+        }
+      ],
+      "name": "updateLazyMintBeacon",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "lazyMintErc721BeaconProxyAddress",
+          "type": "address"
+        }
+      ],
+      "name": "updateLazyMintBeaconProxy",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newMinter",
+          "type": "address"
+        }
+      ],
+      "name": "updateMinter",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newImplementation",
+          "type": "address"
+        }
+      ],
+      "name": "upgradeTo",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newImplementation",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "upgradeToAndCall",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userCreatedCollections",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawNativeFromFactory",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
